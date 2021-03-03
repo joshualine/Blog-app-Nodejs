@@ -1,7 +1,8 @@
 
 //-----IMPORTS-----//
 const express = require('express')
-const path = require('path')
+// const path = require('path')
+const ody
 const ejs = require('ejs')
 const mongoose = require('mongoose');
 
@@ -17,7 +18,7 @@ app.listen(3000, () => {
   console.log("App listening on port 3000")
 })
 
-//------ROUTES--------//
+//------ROUTES AND HANDLERS--------//
 app.get('/', (req, res) => {
   // res.sendFile(path.resolve(__dirname, 'pages/index.html'))
   res.render('index');
@@ -33,6 +34,11 @@ app.get('/post', (req, res) => {
 })
 app.get('/posts/new', (req, res) => {
   res.render('create')
+})
+
+app.post('/posts/store', (req, res) => {
+  console.log(req.body)
+  res.redirect('/')
 })
 
 
